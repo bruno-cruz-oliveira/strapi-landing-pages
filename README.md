@@ -1,61 +1,86 @@
-# 🚀 Getting started with Strapi
+# 🛬 Strapi Landing Pages
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+O backend do projeto Landing Pages foi desenvolvido com Strapi, um poderoso e flexível CMS headless baseado em Node.js. Ele atua como o fornecedor de dados dinâmicos para o front-end em React, permitindo o gerenciamento completo das landing pages sem a necessidade de alterar o código do front-end.
 
-### `develop`
+### ⚙️ Principais responsabilidades:
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+* Gerenciamento de Conteúdo: Criação e edição de páginas, seções e componentes das landing pages, utilizando a interface amigável do Strapi.
+* API RESTful: Disponibilização de uma API que o front-end consome para renderizar as páginas de forma dinâmica.
+* Autenticação e Permissões: Controle de acesso seguro para administradores e editores de conteúdo.
+* Extensibilidade: Suporte à personalização e adição de novos tipos de conteúdo conforme as necessidades do projeto.
 
+### 🛠️ Tecnologias Utilizadas
+
+* [Strapi](https://strapi.io/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Cloudinary](https://cloudinary.com/)
+
+## 📄 Dependências e Versões Necessárias
+
+* Strapi - Versão: 5.4.2
+
+## ✅ Como rodar o projeto
+
+O backend é responsável por fornecer a API de conteúdo para as landing pages. Veja como iniciar o Strapi para rodar localmente ou em ambiente de desenvolvimento:
+
+### 1️⃣ Instalação das dependências
+No diretório raiz do backend (onde estão package.json):
 ```
-npm run develop
-# or
+npm install
+```
+ou:
+```
+yarn install
+```
+
+### 2️⃣ Rodar o Strapi em modo de desenvolvimento
+Inicie o Strapi em modo de desenvolvimento para que ele crie as tabelas do banco e permita hot-reload das alterações:
+```
 yarn develop
 ```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
+ou:
 ```
-npm run start
-# or
-yarn start
+npm run develop
 ```
 
-### `build`
+O painel de administração estará disponível em http://localhost:1337/admin
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+### 3️⃣ Configurar o Painel de Administração
+
+* Ao acessar pela primeira vez, você precisará criar um usuário administrador.
+* Depois, configure os modelos de conteúdo.
+* Crie ou edite entradas de conteúdo que serão consumidas pelo front-end.
+
+![Screenshot](public/Screenshot.jpg)
+
+## 📌 Variáveis de ambiente 📌
+
+Antes de iniciar o projeto, crie um arquivo .env na raiz do backend com base no arquivo .env.example.
+Nesse arquivo, configure as credenciais do Cloudinary, as variáveis do banco de dados e também as APP_KEYS, que são essenciais para o funcionamento da aplicação.
 
 ```
-npm run build
-# or
-yarn build
+# Server
+HOST=0.0.0.0
+PORT=1337
+
+# Secrets
+APP_KEYS=
+
+# Database
+DATABASE_HOST=localhost
+DATABASE_PORT=5433
+DATABASE_NAME=landing-pages
+DATABASE_USERNAME=postgres
+DATABASE_PASSWORD=12345
+DATABASE_SSL=true
+
+# Cloudinary
+CLOUDINARY_NAME=seu-cloud-name
+CLOUDINARY_KEY=sua-api-key
+CLOUDINARY_SECRET=seu-api-secret
 ```
 
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
+Exemplo de geração de chaves seguras (no terminal) para a variável APP_KEYS:
 ```
-yarn strapi deploy
+openssl rand -hex 32
 ```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
